@@ -102,6 +102,7 @@ def fetch_memory(text: str, index_name: str = index_name, top_k: int = 5) -> str
 
 memory_manager = AssistantAgent(
     name="Memory_Manager",
+    system_message="Manage the retrieval of memories and records for Clesca LLC. Only use the functions you have been provided with.",
     llm_config={
         # "config_list": config_list
         "functions": [
@@ -149,8 +150,6 @@ memory_manager = AssistantAgent(
             },
         ]
     },
-    # the default system message of the AssistantAgent is overwritten here
-    system_message="",
     function_map={
         "generate_embedding": generate_embedding,
         "remember": remember,
@@ -164,4 +163,4 @@ memory_user = UserProxyAgent(
     human_input_mode="NEVER",
 )
 
-remember("The owner of Clesca LLC is Philippe Clesca.")
+remember("The owner of Clesca LLC (Philippe Clesca) Created Clesca LLC during his time working at Wander. He would receive requests from previous and new clients for development and management of many different things. Clesca LLC. Currently has several clients: Remvidz, Cogwheel Analytics.")

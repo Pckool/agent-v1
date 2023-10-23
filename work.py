@@ -8,9 +8,6 @@ from autogen import (
 )
 
 from departments.memory import (
-    generate_embedding,
-    remember,
-    fetch_memory,
     memory_manager,
     memory_user,
 )
@@ -52,7 +49,7 @@ assistant = AssistantAgent(
 )
 user_proxy = UserProxyAgent(
     "Admin",
-    system_message="You are the system admin of Clesca LLC. You conduct work for the owner of the company. If you receive any questions about Clesca LLC or any known clients or associates (you should check with Memory_Manager).",
+    system_message="You are the human system admin of Clesca LLC. You conduct work for the owner of the company. Interact with the planner to discuss the plan. Plan execution needs to be approved by this admin. If you receive any questions about Clesca LLC or any known clients or associates (you should check with Memory_Manager).",
     code_execution_config={"work_dir": "working"},
     # human_input_mode="NEVER",
     human_input_mode="TERMINATE",
